@@ -1,0 +1,216 @@
+:root {
+  color-scheme: light;
+  --bg-1: #0f172a;
+  --bg-2: #0b3b5a;
+  --bg-3: #512d8a;
+  --card: rgba(255, 255, 255, 0.12);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --text: #f8fafc;
+  --accent: #4a90e2;
+  --accent-2: #00d2ff;
+  --square: rgba(255, 255, 255, 0.08);
+  --shadow: 0 30px 80px rgba(15, 23, 42, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem;
+  background: radial-gradient(circle at top, var(--bg-2), var(--bg-1) 50%),
+    radial-gradient(circle at bottom, var(--bg-3), transparent 60%);
+  color: var(--text);
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background: conic-gradient(from 180deg, transparent, rgba(255, 255, 255, 0.1), transparent 60%);
+  animation: spin 18s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+body::after {
+  animation-direction: reverse;
+  opacity: 0.25;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.stage {
+  width: min(720px, 100%);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+.card__header {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.7);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.subtitle {
+  color: rgba(248, 250, 252, 0.8);
+  max-width: 42ch;
+}
+
+.art {
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
+}
+
+.square {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(15, 23, 42, 0.5));
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 25px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+.square::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: #0f172a;
+  background: radial-gradient(circle at top left, #ffffff, var(--accent));
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.circle:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.45);
+}
+
+.circle__label {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.circle.pulse {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.7), transparent 60%);
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow.active {
+  opacity: 1;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.range {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.range input[type="range"] {
+  width: 180px;
+  accent-color: var(--accent-2);
+}
+
+@media (max-width: 560px) {
+  .square {
+    width: 200px;
+    height: 200px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

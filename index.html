@@ -2,36 +2,39 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sirkel i firkant</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f5f5f5;
-    }
-
-    .square {
-      width: 200px;
-      height: 200px;
-      border: 3px solid #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #4a90e2;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="square">
-    <div class="circle"></div>
-  </div>
+  <main class="stage">
+    <section class="card">
+      <header class="card__header">
+        <p class="eyebrow">Visuell lekeplass</p>
+        <h1>Sirkel i firkant</h1>
+        <p class="subtitle">Trykk på sirkelen eller bruk kontrollene for å endre uttrykket.</p>
+      </header>
+
+      <div class="art" aria-live="polite">
+        <div class="square" id="square">
+          <div class="circle" id="circle" role="button" aria-pressed="false" tabindex="0">
+            <span class="circle__label">Klikk</span>
+          </div>
+          <span class="glow" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button type="button" class="btn" id="randomize">Nytt fargevalg</button>
+        <button type="button" class="btn" id="toggle-glow">Glød: av</button>
+        <label class="range">
+          <span>Størrelse</span>
+          <input type="range" id="size" min="70" max="150" value="100" />
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
