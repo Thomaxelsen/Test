@@ -64,7 +64,12 @@ sizeInput.addEventListener("input", (event) => {
   updateSize(event.target.value);
 });
 
-circle.addEventListener("click", togglePulse);
+circle.addEventListener("click", (event) => {
+  if (event.target.closest(".circle__cta")) {
+    return;
+  }
+  togglePulse();
+});
 
 circle.addEventListener("keydown", (event) => {
   if (event.key === "Enter" || event.key === " ") {
