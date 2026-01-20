@@ -46,17 +46,6 @@ body::after {
   opacity: 0.25;
 }
 
-.body--illustration {
-  background: #f5f7fb;
-  color: #1f2937;
-  overflow: auto;
-}
-
-.body--illustration::before,
-.body--illustration::after {
-  display: none;
-}
-
 @keyframes spin {
   to {
     transform: rotate(1turn);
@@ -215,135 +204,6 @@ h1 {
   justify-content: space-between;
 }
 
-.illustration {
-  width: min(900px, 100%);
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
-}
-
-.illustration__header {
-  display: grid;
-  gap: 0.6rem;
-}
-
-.illustration__header p {
-  color: #4b5563;
-  max-width: 60ch;
-}
-
-.illustration__back {
-  align-self: start;
-  width: max-content;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  border: 1px solid rgba(31, 41, 55, 0.2);
-  color: #1f2937;
-  text-decoration: none;
-  background: #ffffff;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.illustration__back:hover,
-.illustration__back:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
-}
-
-.diagram {
-  position: relative;
-  width: min(720px, 90vw);
-  aspect-ratio: 1;
-  margin: 0 auto;
-  border-radius: 32px;
-  background: #eef2f7;
-  display: grid;
-  place-items: center;
-  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.3), 0 30px 60px rgba(15, 23, 42, 0.12);
-  overflow: hidden;
-  padding: 1.5rem;
-}
-
-.diagram__core {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: #94a3b8;
-  color: #1f2937;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-weight: 600;
-  gap: 0.25rem;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
-}
-
-.diagram__core span {
-  font-size: 0.95rem;
-}
-
-.diagram__core small {
-  font-size: 0.7rem;
-  color: rgba(31, 41, 55, 0.7);
-}
-
-.diagram__node {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 0.6rem;
-  font-size: 0.7rem;
-  line-height: 1.2;
-  font-weight: 600;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.15);
-  transform: translate(-50%, -50%) translate(var(--x), var(--y));
-}
-
-.diagram__node--blue {
-  background: #86b6f4;
-  color: #0f172a;
-}
-
-.diagram__node--green {
-  background: #7dd3a5;
-  color: #0f172a;
-}
-
-.diagram__node--orange {
-  background: #f6b37b;
-  color: #1f2937;
-}
-
-.diagram__legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: #4b5563;
-}
-
-.diagram__legend span {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-}
-
-.diagram__legend span::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
 .btn {
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.12);
@@ -380,12 +240,6 @@ h1 {
     width: 60px;
     height: 60px;
     font-size: 0.55rem;
-  }
-
-  .diagram__node {
-    width: 95px;
-    height: 95px;
-    font-size: 0.6rem;
   }
 
   .controls {
